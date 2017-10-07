@@ -1,3 +1,4 @@
 import { combineReducers } from 'redux'
+import categorias from './categorias_reducer'
 
-export default combineReducers({ auth: () => { return {} } })
+export default combineReducers({ categorias })
