@@ -2,6 +2,9 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 //
 import { TabNavigator, StackNavigator } from 'react-navigation'
+// Store
+import { Provider } from 'react-redux'
+import store from './store'
 // Screens
 import Departamento from './screens/departamento'
 import Ajustes from './screens/ajustes'
@@ -16,9 +19,11 @@ export default class App extends React.Component {
     }, { lazy: true })
 
     return (
-      <View style={styles.container}>
-        <MainNavigation></MainNavigation>
-      </View>
+      <Provider store={store}>
+        <View style={styles.container}>
+          <MainNavigation></MainNavigation>
+        </View>
+      </Provider>
     );
   }
 }
