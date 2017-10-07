@@ -1,20 +1,30 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+// import { Text, View } from 'react-native'
+import { Container, Content, List, ListItem, Text } from 'native-base'
 import { connect } from 'react-redux'
 import { fetch_categorias } from '../actions/categorias_actions'
 
 class Departamento extends Component {
   componentDidMount() { this.props.fetch_categorias() }
 
+  renderCategorias() {
+    return this.props.categorias.map((categoria, i) => {
+      return (
+        <ListItem key={i}>
+          <Text>{categoria.name}</Text>
+        </ListItem>
+      )
+    })
+  }
   render() {
-  console.log(this.props)
     return(
-      <View>
-        <Text>Departamento</Text>
-        <Text>Departamento</Text>
-        <Text>Departamento</Text>
-        <Text>Departamento</Text>
-      </View>
+      <Container>
+        <Content>
+          <List>
+            {this.renderCategorias()}
+          </List>
+        </Content>
+      </Container>
     )
   }
 }
