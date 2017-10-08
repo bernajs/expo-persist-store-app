@@ -1,5 +1,5 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 //
 import { TabNavigator, StackNavigator } from 'react-navigation'
 // Store
@@ -9,22 +9,28 @@ import store from './store'
 import Departamento from './screens/departamento'
 import Ajustes from './screens/ajustes'
 import Reporte from './screens/reporte'
+import Formulario from './screens/formulario'
+import Usuario from './screens/usuarios'
 
 export default class App extends React.Component {
   render() {
-    const MainNavigation = TabNavigator({
-      departamento: { screen: Departamento },
-      reporte: { screen: Reporte },
-      ajustes: { screen: Ajustes }
-    }, { lazy: true })
+    const MainNavigation = TabNavigator(
+      {
+        departamento: { screen: Departamento },
+        usuario: { screen: Usuario },
+        formulario: { screen: Formulario },
+        ajustes: { screen: Ajustes }
+      },
+      { lazy: true }
+    )
 
     return (
       <Provider store={store}>
         <View style={styles.container}>
-          <MainNavigation></MainNavigation>
+          <MainNavigation />
         </View>
       </Provider>
-    );
+    )
   }
 }
 
@@ -33,5 +39,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     justifyContent: 'center',
-  },
-});
+    marginTop: 25
+  }
+})
